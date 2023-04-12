@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(CommunaTimeTracker VERSION 0.1 LANGUAGES CXX)
 
+#https://doc.qt.io/qt-6.2/qtdoc-demos-photosurface-cmakelists-txt.html
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -9,15 +11,12 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#if (APPLE)
-#    set(MACOSX_BUNDLE_ICON_FILE AppIcon.icns)
-#    # And the following tells CMake where to find and install the file itself.
-#    set(app_icon_macos "resources/AppIcon.icns")
-#    set_source_files_properties(${app_icon_macos} PROPERTIES
-#            MACOSX_PACKAGE_LOCATION "Resources")
-
-#    add_executable( MyApp MACOSX_BUNDLE main.cpp ${app_icon_macos})
-#endif ()
+if (APPLE)
+    set(MACOSX_BUNDLE_ICON_FILE logo.icns)
+    set(myApp_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/logo.icns)
+    set_source_files_properties(${myApp_ICON} PROPERTIES
+           MACOSX_PACKAGE_LOCATION "Resources")
+endif ()
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
@@ -28,6 +27,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
 )
+
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(CommunaTimeTracker
@@ -46,8 +46,9 @@ else()
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(CommunaTimeTracker
+        add_executable(CommunaTimeTracker1
             ${PROJECT_SOURCES}
+            ${myApp_ICON}
         )
     endif()
 endif()
@@ -55,7 +56,7 @@ endif()
 target_link_libraries(CommunaTimeTracker PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(CommunaTimeTracker PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
+    MACOSX_BUNDLE_GUI_IDENTIFIER app.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
