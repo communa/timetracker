@@ -10,10 +10,9 @@ int main(int argc, char *argv[])
     Timer timer;
     w.timer = &timer;
 
-    QIcon icon("/Users/ivan/code/communa/CommunaTimeTracker/resources/logo.png");
+    QIcon icon(":/resources/logo.png");
 
     a.setWindowIcon(icon);
-
     w.setWindowTitle("Communa / TimeTracker");
     w.show();
 

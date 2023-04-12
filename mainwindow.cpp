@@ -4,6 +4,7 @@
 #include <string>
 
 #include "mainwindow.h"
+#include "timer.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -29,7 +30,7 @@ void MainWindow::on_timerButton_clicked()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    MainWindow::timer->time_write();
+    MainWindow::timer->stop();
 
     event->accept();
 }

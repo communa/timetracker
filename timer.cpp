@@ -1,11 +1,13 @@
 #include <QDebug>
 #include <QFile>
+#include <QDir>
 #include <QTextStream>
 #include "timer.h"
 
 Timer::Timer()
 {
     timer = new QTimer(this);
+    this->filePath = QDir::homePath().toStdString(); + "/out.txt";
 
     connect(
         timer,

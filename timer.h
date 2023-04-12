@@ -2,6 +2,7 @@
 #define MYTIMER_H
 
 #include <QTimer>
+#include <QFile>
 
 class Timer : public QObject
 {
@@ -19,6 +20,7 @@ public:
 
 protected:
     QTimer *timer;
+    std::string filePath;
 
 protected slots:
     void TimerSlot();
