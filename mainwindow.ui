@@ -13,12 +13,15 @@
   <property name="windowTitle">
    <string>Communa</string>
   </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="timerButton">
       <property name="text">
-       <string>Start Timer</string>
+       <string>Start</string>
       </property>
      </widget>
     </item>
@@ -27,7 +30,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButton</tabstop>
+  <tabstop>timerButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>
