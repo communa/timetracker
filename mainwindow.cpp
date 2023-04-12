@@ -1,13 +1,12 @@
 #include <QString>
 #include <QFile>
+#include <QCloseEvent>
 #include <string>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
@@ -19,16 +18,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_timerButton_clicked()
 {
-    MainWindow::timer++;
-    QString s = QString::number(MainWindow::timer);
-    ui->timerButton->setText(s);
+    if (!MainWindow::timer->isStarted) {
+        MainWindow::timer->start();
+        ui->timerButton->setText("Stop");
+    } else {
+        MainWindow::timer->stop();
+        ui->timerButton->setText("Start");
+    }
+}
 
-    QFile file("/Users/ivan/code/communa/out.txt");
-    file.open(QIODevice::WriteOnly | QIODevice::Text);
-    QTextStream out(&file);
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    MainWindow::timer->time_write();
 
-    out << s;
-
-    // optional, as QFile destructor will already do it:
-    file.close();
+    event->accept();
 }

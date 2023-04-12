@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "timer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -12,14 +13,15 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    int timer = 0;
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    Timer *timer;
 
 private slots:
     void on_timerButton_clicked();
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     Ui::MainWindow *ui;
