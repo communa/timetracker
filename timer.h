@@ -13,17 +13,12 @@ public:
     int time = 0;
     bool isStarted = false;
 
-    void start();
-    void stop();
     void time_write();
     void time_read();
 
 protected:
-    QTimer *timer;
     QString filePath;
 
-protected slots:
-    void TimerSlot();
 };
 
 #endif // MYTIME

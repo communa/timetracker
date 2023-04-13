@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>299</height>
+    <width>372</width>
+    <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QPushButton" name="timerButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>40</x>
       <y>80</y>
-      <width>60</width>
-      <height>32</height>
+      <width>291</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
@@ -33,14 +33,14 @@
    <widget class="QLabel" name="timerLabel">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
+      <x>40</x>
+      <y>40</y>
       <width>131</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Time... </string>
+     <string>Time tracked: ...</string>
     </property>
    </widget>
   </widget>

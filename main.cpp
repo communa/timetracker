@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     Timer timer;
     w.timer = &timer;
+    w.timer->time_read();
 
     QIcon icon(":/resources/logo.png");
 

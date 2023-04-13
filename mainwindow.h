@@ -18,8 +18,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     Timer *timer;
+    QTimer *_timer;
 
 private slots:
+    void on_tick();
     void on_timerButton_clicked();
     void closeEvent(QCloseEvent *event) override;
 
