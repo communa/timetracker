@@ -20,7 +20,7 @@ public:
 
 protected:
     QTimer *timer;
-    std::string filePath;
+    QString filePath;
 
 protected slots:
     void TimerSlot();

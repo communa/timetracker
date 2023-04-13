@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 #include <QDir>
 #include <QTextStream>
 #include "timer.h"
@@ -7,7 +8,7 @@
 Timer::Timer()
 {
     timer = new QTimer(this);
-    this->filePath = QDir::homePath().toStdString(); + "/out.txt";
+    this->filePath = QDir::homePath() + "/communa.txt";
 
     connect(
         timer,
@@ -39,7 +40,7 @@ void Timer::stop() {
 
 void Timer::time_write()
 {
-    QFile file("/Users/ivan/code/communa/out.txt");
+    QFile file(this->filePath);
     file.open(QIODevice::WriteOnly | QIODevice::Text);
     QTextStream out(&file);
 
@@ -50,7 +51,7 @@ void Timer::time_write()
 
 void Timer::time_read()
 {
-    QFile file("/Users/ivan/code/communa/out.txt");
+    QFile file(this->filePath);
     QString s = "";
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
