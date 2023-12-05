@@ -8,16 +8,16 @@ class Timer : public QObject
 {
     Q_OBJECT
 
-public:
-    Timer();
-    int time = 0;
-    bool isStarted = false;
+    public:
+        Timer();
+        int time = 0;
+        bool isStarted = false;
 
-    void time_write();
-    void time_read();
+        void time_write();
+        void time_read();
 
-protected:
-    QString filePath;
+    protected:
+        QString filePath;
 
 };
 

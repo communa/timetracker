@@ -1,16 +1,26 @@
 #include <QString>
 #include <QFile>
 #include <QCloseEvent>
-#include <string>
+#include <QPixmap>
 
+#include "auth.h"
 #include "mainwindow.h"
 #include "timer.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
+    Auth auth;
+
     ui->setupUi(this);
     _timer = new QTimer(this);
+
+    QPixmap pm = auth.buildQrCode();
+
+    qDebug() << pm;
+
+
+    ui->label->setPixmap(pm);
 
     connect(
         _timer,
@@ -18,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         this,
         SLOT(on_tick())
     );
+
+    this->show_login();
 }
 
 MainWindow::~MainWindow()
@@ -31,9 +43,16 @@ void MainWindow::on_tick()
     QString text = "Time tracked: " + QString::number(MainWindow::timer->time);
 
     _timer->start(1000);
-    ui->timerLabel->setText(text);
+    ui->timeLabel->setText(text);
 
     qDebug() << text;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    MainWindow::timer->time_write();
+
+    event->accept();
 }
 
 void MainWindow::on_timerButton_clicked()
@@ -45,13 +64,39 @@ void MainWindow::on_timerButton_clicked()
     } else {
         _timer->stop();
         MainWindow::timer->isStarted = true;
-        ui->timerButton->setText("Start");
+        ui->timerButton->setText("Start Timer");
     }
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::on_buttonAuthCreate_clicked()
 {
-    MainWindow::timer->time_write();
+    this->show_timer();
+}
 
-    event->accept();
+void MainWindow::on_buttonAuthRestore_clicked()
+{
+    this->show_timer();
+}
+
+void MainWindow::on_buttonAuthLogout_clicked()
+{
+    this->show_login();
+}
+
+void MainWindow::show_login()
+{
+    ui->frameTimer->hide();
+    ui->frameLogin->show();
+    ui->frameTimer->setGeometry(0,0, 600, 800);
+
+    this->setFixedSize(440, 690);
+}
+
+void MainWindow::show_timer()
+{
+    ui->frameTimer->show();
+    ui->frameLogin->hide();
+    ui->frameTimer->setGeometry(0,0, 600, 800);
+
+    this->setFixedSize(400, 460);
 }

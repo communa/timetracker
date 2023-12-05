@@ -21,9 +21,17 @@ public:
     QTimer *_timer;
 
 private slots:
+    void closeEvent(QCloseEvent *event) override;
+
+    void show_timer();
+    void show_login();
+
     void on_tick();
     void on_timerButton_clicked();
-    void closeEvent(QCloseEvent *event) override;
+
+    void on_buttonAuthLogout_clicked();
+    void on_buttonAuthCreate_clicked();
+    void on_buttonAuthRestore_clicked();
 
 private:
     Ui::MainWindow *ui;
