@@ -24,6 +24,7 @@ private slots:
     void closeEvent(QCloseEvent *event) override;
 
     void show_timer();
+    void render_qr();
     void show_login();
 
     void on_tick();
@@ -31,7 +32,6 @@ private slots:
 
     void on_buttonAuthLogout_clicked();
     void on_buttonAuthCreate_clicked();
-    void on_buttonAuthRestore_clicked();
 
 private:
     Ui::MainWindow *ui;

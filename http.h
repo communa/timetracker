@@ -7,7 +7,6 @@
 class Http
 {
     public:
-        std::string URL = "https://app.communa.network/api/";
         QByteArray request(const QString& url);
 };
 

@@ -1,15 +1,20 @@
 #include "auth.h"
 #include "api.h"
 #include <QPixmap>
+#include <QString>
+#include <QDebug>
 
 QPixmap Auth::buildQrCode()
 {
     Api api;
     QPixmap pm;
 
-    QByteArray data = api.authQrCode();
+    QByteArray dataNonce = api.getNonce();
+    QByteArray dataQr = api.authQrCode(dataNonce);
 
-    pm.loadFromData(data);
+    qDebug() << "OK: "<< dataNonce;
+
+    pm.loadFromData(dataQr);
 
     return pm;
 }

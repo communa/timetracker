@@ -10,17 +10,8 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    Auth auth;
-
     ui->setupUi(this);
     _timer = new QTimer(this);
-
-    QPixmap pm = auth.buildQrCode();
-
-    qDebug() << pm;
-
-
-    ui->label->setPixmap(pm);
 
     connect(
         _timer,
@@ -29,7 +20,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         SLOT(on_tick())
     );
 
-    this->show_login();
+    this->render_qr();
+    this->show_timer();
 }
 
 MainWindow::~MainWindow()
@@ -70,12 +62,7 @@ void MainWindow::on_timerButton_clicked()
 
 void MainWindow::on_buttonAuthCreate_clicked()
 {
-    this->show_timer();
-}
-
-void MainWindow::on_buttonAuthRestore_clicked()
-{
-    this->show_timer();
+    this->render_qr();
 }
 
 void MainWindow::on_buttonAuthLogout_clicked()
@@ -89,7 +76,7 @@ void MainWindow::show_login()
     ui->frameLogin->show();
     ui->frameTimer->setGeometry(0,0, 600, 800);
 
-    this->setFixedSize(440, 690);
+    this->setFixedSize(430, 590);
 }
 
 void MainWindow::show_timer()
@@ -99,4 +86,15 @@ void MainWindow::show_timer()
     ui->frameTimer->setGeometry(0,0, 600, 800);
 
     this->setFixedSize(400, 460);
+}
+
+void MainWindow::render_qr()
+{
+    Auth auth;
+
+    QPixmap pm = auth.buildQrCode();
+
+    // qDebug() << pm;
+
+    ui->label->setPixmap(pm);
 }

@@ -12,6 +12,8 @@ QByteArray Http::request(const QString& url)
     QNetworkReply *reply = nam.get(QNetworkRequest(url));
     loop.exec();
 
+    qDebug() << url;
+
     QByteArray data = reply->readAll();
 
     delete reply;
