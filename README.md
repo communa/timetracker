@@ -1,4 +1,4 @@
-***Communa TimeTracker** is a cross-platform desktop application designed to streamline and automate time management operations for both remote workers and businesses, enhancing the convenience of remote work.
+**Communa TimeTracker** is a cross-platform desktop application designed to streamline and automate time management operations for both remote workers and businesses, enhancing the convenience of remote work.
 
 - [Communa Network](https://communa.network/)
 - [TimeTracker GitHub Repository](https://github.com/communa/timetracker)
