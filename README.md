@@ -1,32 +1,34 @@
-**Communa TimeTracker** is a cross-platform desktop app that tracks working hours aimed to ease and automate time management operations both for freelancers and businesses, making remote work more convenient than ever before.
+***Communa TimeTracker** is a cross-platform desktop application designed to streamline and automate time management operations for both remote workers and businesses, enhancing the convenience of remote work.
 
-- https://communa.network/
-- https://github.com/communa/timetracker
+- [Communa Network](https://communa.network/)
+- [TimeTracker GitHub Repository](https://github.com/communa/timetracker)
 
-## Time Recording
+## **Time Recording**
 
-Our desktop app is designed to help freelancers track time spent on projects throughout the day. The application operates in the background, automatically recording the time spent with the total number of hours worked always displayed in the system tray.
+The desktop app assists remote workers in tracking the time spent on projects throughout the day. It operates in the background, automatically recording working hours, with the total hours displayed in the system tray. The app features user-friendly controls, including START/STOP buttons to manage the timer. This ensures accurate recording of working hours, which can later be invoiced to clients. To enhance accuracy, the timer automatically stops after 10 minutes of inactivity, reducing the need for manual pauses.
 
-Our app is aimed to be user-friendly and has two main controls: the START / STOP buttons which are used to START and STOP the timer while tracking work hours throughout the day. **By these freelancers can ensure that their working hours are recorded and later to be charged to the client.** To make the tracking process even more accurate - the timer automatically stops after 10 minutes of inactivity, so freelancers don't need to pause it manually while leaving a workspace and worry that hours aren't recorded incorrectly.
+Tracked time is sent every 10 minutes via an API to our backend, providing instant accessibility on Communa's website. Both freelancers and clients can view this data from any device, facilitating project management.
 
-To further enhance the accuracy and trust that tracked data is stored securely the app sends tracked time every 10 minutes via an API provided by our backend. Making it instantly available on Communa’s website, where both freelancers and clients can see them from any device, making it easier to stay on top of the projects.
+## **Activity Logging**
 
-## Activity Logging
+To accurately record activity during work, **the application logs keystrokes, and mouse movements**, and takes screenshots(upcoming releases). This comprehensive data allows for tracking the time spent on specific tasks and identifying potential inefficiencies or distractions. 
 
-**Our application needs to log keystrokes, and mouse movements, and take screenshots to accurately record activity during the work.** By collecting these we can track the amount of time a freelancer spends on a particular task and identify any inefficiencies or distractions. Screenshots give additional visual evidence to verify that a freelancer is actually working.
+This type of logging is crucial for clients because it gives the needed detailed overview of employee productivity and helps to identify areas where improvements can be made. Clients can see exactly what tasks were completed and how much time was spent on each one, as well as monitor productivity levels. 
 
-This type of logging is crucial for clients because it gives the needed detailed overview of employee productivity and helps to identify areas where improvements can be made. Clients can see exactly what tasks were completed and how much time was spent on each one. This information can be used to identify areas where employees may need additional training or support, as well as to monitor productivity levels.
+Important to mention that we are transparent about what data is being collected and how it will be used to avoid any misunderstandings or mistrust.
 
-By monitoring these logs clients ensure that freelancers are using their time effectively on solving their business operation needs. Important to mention that we should also be transparent about what data is being collected and how it will be used to avoid any misunderstandings or mistrust.
-
-## Authentication
+## **Authentication**
 
 Authentication is a crucial aspect of any project, and we strive to make it as convenient as possible for our users. **By integrating with wallets like MetaMask, we offer a seamless onboarding experience for the Web3 community**, providing freelancers with a convenient authentication method that eliminates the need to create new accounts and remember additional usernames and passwords.
 
-In a login process like this, a freelancer simply scans a QR code containing a message that needs to be signed directly in the app. For that a user opens the wallet application of choice extension and selects the "Scan QR Code" option, then scan the QR code with their device's camera, prompting the wallet to sign the message and send it back to our desktop application.
+In a login process like this, a freelancer simply scans a QR code containing a message that needs to be signed directly in the app. For that a user opens the wallet application of choice extension and selects the "Scan QR Code" option, then scans the QR code with their device's camera, prompting the wallet to sign the message and send it back to our desktop application.
 
-With this type of authentication we not only onboard users quickly but result in higher security and censorship-resistant authentication where a greater SSO (Single Sign-On) alternative to Amazon, and Google is provided by the distributed network of **Ethereum** nodes.
+This authentication process not only ensures quick onboarding but also provides enhanced security and censorship-resistant authentication through the distributed network of Ethereum nodes. It serves as a robust alternative to Single Sign-On, presenting a user-friendly and secure Web3 authentication experience.
 
-## Cross-platform
+## Invoicing and Payments
 
-Our desktop application is a cross-platform app developed with the **QT6** framework and made to be compatible with the latest versions of **Windows, Mac OS, and Linux** (Ubuntu, Fedora, Debian) giving freelancers the ability to install it with a simple one-click installation process, just by downloading it directly from Communa's GitHub profile. Without any additional knowledge required or technical assistance applied.
+Automatic time tracking also simplifies the invoicing and payment processes, promoting trust and transparency between freelancers and clients. The tracked time serves as a reliable record for subsequent payments, ensuring that freelancers are accurately compensated for their work.
+
+## **Cross-platform**
+
+Developed with the QT6 framework, Communa TimeTracker is a cross-platform app compatible with the latest versions of Windows, Mac OS, and Linux (Ubuntu, Fedora, Debian). Remote workers can install it with a simple one-click process directly from Communa's GitHub profile, requiring no additional technical knowledge or assistance.
