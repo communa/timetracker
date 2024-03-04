@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="image-error">images/error.png</file>
+        <file alias="image-info">images/info.png</file>
+        <file alias="image-input">images/input.png</file>
+        <file alias="image-logo">images/logo.svg</file>
+        <file alias="image-square">images/logo-square.svg</file>
+        <file alias="image-logo16">images/logo16.png</file>
+        <file alias="image-logo24">images/logo24.png</file>
+        <file alias="image-logo32">images/logo32.png</file>
+        <file alias="image-logo48">images/logo48.png</file>
+        <file alias="image-logo64">images/logo64.png</file>
+        <file alias="image-logo128">images/logo128.png</file>
+        <file alias="image-logo256">images/logo256.png</file>
+        <file alias="image-logo512">images/logo512.png</file>
+        <file alias="image-preferences">images/preferences.png</file>
+        <file alias="image-start">images/start.png</file>
+        <file alias="image-stop">images/stop.png</file>
+        <file alias="image-warn">images/warn.png</file>
+    </qresource>
+</RCC>
